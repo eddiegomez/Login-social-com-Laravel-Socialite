@@ -33,11 +33,11 @@ class GoogleController extends Controller
                 'password'=>Hash::make($user->id),
             ]);
           }
-          Auth::login($userExisted);
+          Auth::login($newUser);
           return redirect()->route('home');
 
         } catch (\Exception $ex) {
-            //throw $th;
+           dd($ex);
         }
     }
 }
