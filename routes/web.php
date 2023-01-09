@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\GoogleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,9 +19,7 @@ Route::get('/', function () {
 });
 
 Auth::routes(['verify' => true]);
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('auth/google/redirect'.[]);
-
-Route::get('auth/google/callback'.[]);
+Route::get('auth/google/redirect'.[GoogleController::class,'']);
+Route::get('auth/google/redirect'.[GoogleController::class,'']);
