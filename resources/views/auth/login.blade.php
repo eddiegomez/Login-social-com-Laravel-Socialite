@@ -184,7 +184,7 @@
                                     alt="">
                             </a>
 
-                            <a href="https://www.github.com" target="_blank"
+                            <a href="{{ route('handleGitHubRedirect') }}" target="_blank"
                                 class="px-2"> <img
                                     src="https://www.freepnglogos.com/uploads/512x512-logo-png/512x512-logo-github-icon-35.png"
                                     alt=""> </a> </div>

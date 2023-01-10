@@ -9,18 +9,18 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
 
-class FacebookController extends Controller
+class GitHubController extends Controller
 {
-    public function handleFacebookRedirect()
+    public function handleGitHubRedirect()
     {
 
-        return Socialite::driver('facebook')->redirect();
+        return Socialite::driver('github')->redirect();
     }
-    public function handleFacebookCallback()
+    public function handleGitHubCallback()
     {
         try {
 
-            $user = Socialite::driver('facebook')->user();
+            $user = Socialite::driver('github')->user();
 
             $finduser = User::where('social_id', $user->id)->first();
 
@@ -35,8 +35,8 @@ class FacebookController extends Controller
                     'name' => $user->name,
                     'email' => $user->email,
                     'social_id'=> $user->id,
-                    'social_type'=> 'facebook',
-                    'password' =>Hash::make('my-facebook')
+                    'social_type'=> 'github',
+                    'password' =>Hash::make('my-github')
                 ]);
 
                 Auth::login($newUser);
