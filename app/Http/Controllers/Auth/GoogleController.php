@@ -11,26 +11,41 @@ use Laravel\Socialite\Facades\Socialite;
 
 class GoogleController extends Controller
 {
-    CONST GOOGLE_TYPE='google';
+    public function handleGoogleRedirect()
+    {
 
-    public function handleGoogleRedirect(){
         return Socialite::driver('google')->redirect();
     }
     public function handleGoogleCallback()
     {
-       $googleUser = Socialite::driver('google')->user();
+        try {
 
-       $user = User::updateOrCreate([
-        'oauth_id' => $googleUser->id,
-        ], [
-        'name'=>$googleUser->name,
-        'email'=>$googleUser->email,
-        'password'=>Hash::make($googleUser->id)
-    ]);
+            $user = Socialite::driver('google')->user();
 
-    Auth::login($user);
+            $finduser = User::where('social_id', $user->id)->first();
 
-    return redirect('/home');
+            if($finduser){
 
+                Auth::login($finduser);
+
+                return redirect()->route('home');
+
+            }else{
+                $newUser = User::create([
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'social_id'=> $user->id,
+                    'social_type'=> 'google',
+                    'password' =>Hash::make('my-google')
+                ]);
+
+                Auth::login($newUser);
+
+                return redirect()->route('home');
+            }
+
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+        }
     }
 }

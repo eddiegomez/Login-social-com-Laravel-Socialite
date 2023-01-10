@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddGoogleOauthColumnsToUsersTable extends Migration
+class AddSocialLoginFieldToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,8 @@ class AddGoogleOauthColumnsToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('oauth_id')->nullable();
-            $table->string('oauth_type')->nullable();
+            $table->string('social_id')->nullable();
+            $table->string('social_type')->nullable();
         });
     }
 
@@ -27,8 +27,8 @@ class AddGoogleOauthColumnsToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('oauth_id');
-            $table->dropColumn('oauth_type');
+            $table->dropColumn('social_id');
+            $table->dropColumn('social_type');
         });
     }
 }

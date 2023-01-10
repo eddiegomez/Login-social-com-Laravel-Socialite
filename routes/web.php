@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\GoogleController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,8 @@ Route::get('/', function () {
 });
 
 Auth::routes(['verify' => true]);
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/auth/google/redirect',[GoogleController::class,'handleGoogleRedirect']);
-Route::get('/auth/google/callback',[GoogleController::class,'handleGoogleCallback']);
+Route::get('/auth/google/redirect',[GoogleController::class,'handleGoogleRedirect'])->name('handleGoogleRedirect');;
+Route::get('/auth/google/callback',[GoogleController::class,'handleGoogleCallback'])->name('handleGoogleCallback');;
