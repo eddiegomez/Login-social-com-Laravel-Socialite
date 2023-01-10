@@ -170,7 +170,7 @@
                                     id="forgot" class="font-weight-bold">Esqueceu a senha?</a> </div>
                             <button type="submit" type="submit"class="btn btn-primary btn-block mt-3">Login</button>
                             <div class="text-center pt-4 text-muted">Não tem uma conta?<a
-                                    href="#">Inscrever-se</a> </div>
+                                    href="{{ url('/register') }}">Inscrever-se</a> </div>
                         </form>
                     </div>
                     <div class="mx-3 my-2 py-2 bordert">
