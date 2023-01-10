@@ -175,7 +175,7 @@
                     </div>
                     <div class="mx-3 my-2 py-2 bordert">
                         <div class="text-center py-3">
-                            <a href="https://wwww.facebook.com" target="_blank" class="px-2">
+                            <a href="{{ route('handleFacebookRedirect') }}" target="_blank" class="px-2">
                                 <img src="https://www.dpreview.com/files/p/articles/4698742202/facebook.jpeg" alt="">
                             </a>
 

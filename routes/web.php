@@ -29,5 +29,5 @@ Route::get('/auth/google/redirect',[GoogleController::class,'handleGoogleRedirec
 Route::get('/auth/google/callback',[GoogleController::class,'handleGoogleCallback'])->name('handleGoogleCallback');;
 
 /*Facebook Oauth Routes*/
-Route::get('/auth/facebook/redirect',[FacebookController::class,'handleGoogleRedirect'])->name('handleFacebookRedirect');;
-Route::get('/auth/facebook/callback',[FacebookController::class,'handleGoogleCallback'])->name('handleFacebookCallback');;
+Route::get('/auth/facebook/redirect',[FacebookController::class,'handleFacebookRedirect'])->name('handleFacebookRedirect');;
+Route::get('/auth/facebook/callback',[FacebookController::class,'handleFacebookCallback'])->name('handleFacebookCallback');;
